@@ -30,14 +30,20 @@ jobs:
       uses: mikepenz/release-changelog-builder-action@v4
       with:
         configuration: |
-          template: |
-            # Changelog
-            {{#each commits}}
-            - {{messageTitle}}
-            {{/each}}
+          baseConfig:
+            template: |
+              # Changelog
+              {{#each commits}}
+              - {{messageTitle}}
+              {{/each}}
+          categories:
+            - title: "Commits"
+              labels: []
         commitMode: true
         outputFile: CHANGELOG.md
         token: ${{ secrets.GITHUB_TOKEN }}
+        ignoreTags: true
+        fromTag: 0000000000000000000000000000000000000000
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
