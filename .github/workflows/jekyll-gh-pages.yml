@@ -46,7 +46,6 @@ jobs:
         mkdir -p ./articles
         mv CHANGELOG.md ./articles/changelog.md
         
-        # Создаем/обновляем toc.yml
         echo "- name: Changelog" >> toc.yml
         echo "  href: articles/changelog.md" >> toc.yml
 
