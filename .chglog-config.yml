@@ -1,5 +1,5 @@
 style: keepachangelog
-template: CHANGELOG.tpl.md
+template: CHANGELOG.md
 info:
   title: CHANGELOG
   repository_url: https://github.com/Mug1vara97/mug1vara97.github.io

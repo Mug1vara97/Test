@@ -26,32 +26,12 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Generate initial tag if none exists
-      run: |
-        if ! git describe --abbrev=0 --tags 2>/dev/null; then
-          git tag v0.0.1
-          git push origin v0.0.1
-        fi
-
     - name: Generate CHANGELOG
-      uses: mikepenz/release-changelog-builder-action@v4
+      uses: nuuday/github-changelog-action@v1.0.0
       with:
-        configuration: |
-          {
-            "template": "# Changelog\n\n{{#each commits}}\n- {{messageTitle}}\n{{/each}}",
-            "categories": [
-              {
-                "title": "Features",
-                "labels": ["feat"]
-              },
-              {
-                "title": "Bug Fixes",
-                "labels": ["fix"]
-              }
-            ]
-          }
-        token: ${{ secrets.GITHUB_TOKEN }}
         output: CHANGELOG.md
+        template: keepachangelog
+        config: .chglog-config.yml
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -59,21 +39,17 @@ jobs:
         dotnet-version: 8.x
 
     - name: Install DocFX
-      run: dotnet tool install -g docfx --version 2.78.3
+      run: dotnet tool install -g docfx
 
     - name: Prepare documentation
       run: |
+        echo "- name: Changelog" >> toc.yml
+        echo "  href: articles/changelog.md" >> toc.yml
         mkdir -p articles
-        mv CHANGELOG.md articles/changelog.md || echo "CHANGELOG.md not found"
-        
-        # Create valid TOC structure
-        echo "- name: Documentation" > toc.yml
-        echo "  items:" >> toc.yml
-        echo "    - name: Changelog" >> toc.yml
-        echo "      href: articles/changelog.md" >> toc.yml
+        mv CHANGELOG.md articles/changelog.md
 
     - name: Build documentation
-      run: docfx docfx.json --logLevel Warning
+      run: docfx docfx.json
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
