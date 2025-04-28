@@ -27,11 +27,22 @@ jobs:
         fetch-depth: 0
 
     - name: Generate CHANGELOG
-      uses: nuuday/github-changelog-action@v1.0.0
+      uses: mikepenz/release-changelog-builder-action@v4
       with:
+        configuration: |
+          template: |
+            # Changelog
+            
+            {{#each releases}}
+            ## {{title}} ({{date}})
+            
+            {{#each merges}}
+            - {{message}}
+            {{/each}}
+            
+            {{/each}}
+        token: ${{ secrets.GITHUB_TOKEN }}
         output: CHANGELOG.md
-        template: keepachangelog
-        config: .chglog-config.yml
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -43,24 +54,14 @@ jobs:
 
     - name: Prepare documentation
       run: |
-        # Создаем структуру каталогов
         mkdir -p articles
+        [ -f CHANGELOG.md ] && mv CHANGELOG.md articles/changelog.md || echo "Using existing changelog"
         
-        # Проверяем существование файла перед перемещением
-        if [ -f "CHANGELOG.md" ]; then
-          mv CHANGELOG.md articles/changelog.md
-        else
-          echo "CHANGELOG.md not found!"
-          exit 1
-        fi
-
-        # Создаем корректный YAML
-        echo "- name: Changelog" > toc.yml
-        echo "  href: articles/changelog.md" >> toc.yml
+        # Create valid TOC structure
+        printf "-\n  name: Documentation\n  items:\n    - name: Changelog\n      href: articles/changelog.md\n" > toc.yml
 
     - name: Build documentation
-      run: |
-        docfx docfx.json --logLevel Warning
+      run: docfx docfx.json --logLevel Warning
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
