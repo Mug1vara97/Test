@@ -21,9 +21,6 @@
         ],
         "exclude": [
           "_site/**"
-        ],
-        "articles": [
-          "articles/**"
         ]
       }
     ],
