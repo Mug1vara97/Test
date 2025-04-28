@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Добавлены права на запись для коммита изменений
+  contents: write 
   pages: write
   id-token: write
 
@@ -28,22 +28,18 @@ jobs:
 
     - name: Update CHANGELOG
       run: |
-        # Получаем информацию о последнем коммите
         COMMIT_MSG=$(git log -1 --pretty=format:"%s")
         COMMIT_HASH=$(git log -1 --pretty=format:"%H")
         COMMIT_DATE=$(git log -1 --pretty=format:"%cd" --date=short)
         COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
         
-        # Создаем файл если его нет
         if [ ! -f CHANGELOG.md ]; then
           echo "# Changelog\n" > CHANGELOG.md
         fi
         
-        # Добавляем запись в начало файла
         echo -e "## [$COMMIT_HASH]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$COMMIT_HASH) - $COMMIT_DATE\n- Author: $COMMIT_AUTHOR\n- Message: $COMMIT_MSG\n" | cat - CHANGELOG.md > temp.md
         mv temp.md CHANGELOG.md
         
-        # Коммитим изменения
         git config --global user.name "Docs Bot"
         git config --global user.email "docs-bot@example.com"
         git add CHANGELOG.md
@@ -57,11 +53,9 @@ jobs:
 
     - name: Prepare DocFX structure
       run: |
-        # Создаем структуру документации
         mkdir -p articles
         [ -f CHANGELOG.md ] && cp CHANGELOG.md articles/
         
-        # Обновляем оглавление
         if ! grep -q "Changelog" toc.yml; then
           echo "- name: Changelog" >> toc.yml
           echo "  href: articles/CHANGELOG.md" >> toc.yml
