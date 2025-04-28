@@ -30,12 +30,31 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 
+      
+    - name: Generate CHANGELOG
+      uses: git-chglog/git-chglog-action@v0.3.0
+      with:
+        output: CHANGELOG.md
+        template: keepachangelog
+        config: .chglog-config.yml
+
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.x
 
     - run: dotnet tool update -g docfx
+
+    - name: Prepare documentation
+      run: |
+        mkdir -p ./articles
+        mv CHANGELOG.md ./articles/changelog.md
+        
+        echo "- name: Changelog" >> ./toc.yml
+        echo "  href: changelog.md" >> ./toc.yml
+
     - run: docfx docfx.json
 
     - name: Upload artifact
