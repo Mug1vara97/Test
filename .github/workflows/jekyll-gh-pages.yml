@@ -26,21 +26,30 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Generate initial tag if none exists
+      run: |
+        if ! git describe --abbrev=0 --tags 2>/dev/null; then
+          git tag v0.0.1
+          git push origin v0.0.1
+        fi
+
     - name: Generate CHANGELOG
       uses: mikepenz/release-changelog-builder-action@v4
       with:
         configuration: |
-          template: |
-            # Changelog
-            
-            {{#each releases}}
-            ## {{title}} ({{date}})
-            
-            {{#each merges}}
-            - {{message}}
-            {{/each}}
-            
-            {{/each}}
+          {
+            "template": "# Changelog\n\n{{#each commits}}\n- {{messageTitle}}\n{{/each}}",
+            "categories": [
+              {
+                "title": "Features",
+                "labels": ["feat"]
+              },
+              {
+                "title": "Bug Fixes",
+                "labels": ["fix"]
+              }
+            ]
+          }
         token: ${{ secrets.GITHUB_TOKEN }}
         output: CHANGELOG.md
 
@@ -55,10 +64,13 @@ jobs:
     - name: Prepare documentation
       run: |
         mkdir -p articles
-        [ -f CHANGELOG.md ] && mv CHANGELOG.md articles/changelog.md || echo "Using existing changelog"
+        mv CHANGELOG.md articles/changelog.md || echo "CHANGELOG.md not found"
         
         # Create valid TOC structure
-        printf "-\n  name: Documentation\n  items:\n    - name: Changelog\n      href: articles/changelog.md\n" > toc.yml
+        echo "- name: Documentation" > toc.yml
+        echo "  items:" >> toc.yml
+        echo "    - name: Changelog" >> toc.yml
+        echo "      href: articles/changelog.md" >> toc.yml
 
     - name: Build documentation
       run: docfx docfx.json --logLevel Warning
