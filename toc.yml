@@ -2,3 +2,7 @@
   href: docs/
 - name: API
   href: api/
+- name: Documentation
+  items:
+    - name: Changelog
+      href: articles/CHANGELOG.md
