@@ -39,7 +39,7 @@ jobs:
             {{/each}}
             {{/each}}
         token: ${{ secrets.GITHUB_TOKEN }}
-        output: CHANGELOG.md
+        outputFile: CHANGELOG.md  # Изменено с output на outputFile
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
