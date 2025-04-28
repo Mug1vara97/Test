@@ -4,10 +4,9 @@
     {
       "src": [
         {
-          "src": "../SQLServer/",
-          "files": [
-            "**/*.csproj"
-          ]
+          "src": "src",
+          "files": ["**/*.csproj"],
+          "exclude": ["**/bin/**", "**/obj/**"]
         }
       ],
       "dest": "api"
@@ -16,31 +15,21 @@
   "build": {
     "content": [
       {
-        "files": [
-          "**/*.{md,yml}"
-        ],
-        "exclude": [
-          "_site/**"
-        ]
+        "files": ["*.md", "articles/**/*.md", "toc.yml"],
+        "exclude": ["_site/**"]
       }
     ],
     "resource": [
       {
-        "files": [
-          "images/**"
-        ]
+        "files": ["images/**"]
       }
     ],
     "output": "_site",
-    "template": [
-      "default",
-      "modern"
-    ],
+    "template": ["default"],
     "globalMetadata": {
-      "_appName": "Test",
-      "_appTitle": "Test",
-      "_enableSearch": true,
-      "pdf": true
+      "_appName": "Documentation",
+      "_appTitle": "Project Documentation",
+      "_enableSearch": true
     }
   }
 }
