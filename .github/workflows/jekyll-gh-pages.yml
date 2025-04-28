@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write 
+  contents: write, read
   pages: write
   id-token: write
 
@@ -46,8 +46,8 @@ jobs:
         git commit -m "Update CHANGELOG with latest commit" || echo "No changes to commit"
         git push
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Dotnet Setup
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.x
 
