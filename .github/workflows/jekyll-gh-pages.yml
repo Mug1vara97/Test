@@ -43,9 +43,6 @@ jobs:
 
     - name: Prepare documentation
       run: |
-        mkdir -p ./articles
-        mv CHANGELOG.md ./articles/changelog.md
-        
         echo "- name: Changelog" >> toc.yml
         echo "  href: articles/changelog.md" >> toc.yml
 
