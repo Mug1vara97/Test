@@ -32,14 +32,12 @@ jobs:
         configuration: |
           template: |
             # Changelog
-            {{#each releases}}
-            ## {{title}} ({{date}})
-            {{#each merges}}
-            - {{message}}
+            {{#each commits}}
+            - {{messageTitle}}
             {{/each}}
-            {{/each}}
+        commitMode: true
+        outputFile: CHANGELOG.md
         token: ${{ secrets.GITHUB_TOKEN }}
-        outputFile: CHANGELOG.md  # Изменено с output на outputFile
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
