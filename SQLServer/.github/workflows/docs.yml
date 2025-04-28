@@ -2,30 +2,47 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
-    - name: Setup DocFX
-      uses: sebastianpopp/docfx-action@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
       with:
-        docfx-version: '2.78.3'
+        dotnet-version: 8.x
+
+    - name: Build project
+      run: dotnet build -c Release
+
+    - name: Install DocFX
+      run: dotnet tool install -g docfx
 
     - name: Build documentation
       run: |
-        docfx build
-        # Создаем необходимые файлы
-        touch _site/.nojekyll
-        echo "Documentation" > _site/index.html
+        docfx docfx.json
+        cp -r src/bin/Release/net8.0/ _site/api/
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: ./_site
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
-        keep_files: true
+      id: deployment
+      uses: actions/deploy-pages@v2
