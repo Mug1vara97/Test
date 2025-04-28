@@ -1,26 +1,19 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Documentation with Changelog
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
-  
+
 jobs:
   publish-docs:
     environment:
@@ -28,40 +21,43 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
       with:
-        fetch-depth: 0 
-      
+        fetch-depth: 0
+
     - name: Generate CHANGELOG
-      uses: git-chglog/git-chglog-action@v0.3.0
+      uses: git-chglog/git-chglog-action@v1.1.0  # Обновленная версия
       with:
         output: CHANGELOG.md
         template: keepachangelog
         config: .chglog-config.yml
 
-    - name: Dotnet Setup
-      uses: actions/setup-dotnet@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.x
 
-    - run: dotnet tool update -g docfx
+    - name: Install DocFX
+      run: dotnet tool install -g docfx
 
     - name: Prepare documentation
       run: |
         mkdir -p ./articles
         mv CHANGELOG.md ./articles/changelog.md
         
-        echo "- name: Changelog" >> ./toc.yml
-        echo "  href: changelog.md" >> ./toc.yml
+        # Создаем/обновляем toc.yml
+        echo "- name: Changelog" >> toc.yml
+        echo "  href: articles/changelog.md" >> toc.yml
 
-    - run: docfx docfx.json
+    - name: Build documentation
+      run: docfx docfx.json
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        # Upload entire repository
         path: './_site'
+
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
