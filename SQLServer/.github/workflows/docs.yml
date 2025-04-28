@@ -2,7 +2,7 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build-and-deploy:
@@ -19,6 +19,9 @@ jobs:
     - name: Build documentation
       run: |
         docfx build
+        # Создаем необходимые файлы
+        touch _site/.nojekyll
+        echo "Documentation" > _site/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
