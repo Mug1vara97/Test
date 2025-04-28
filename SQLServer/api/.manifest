@@ -1,0 +1,14 @@
+{
+  "SQLServer.Migrations": "SQLServer.Migrations.yml",
+  "SQLServer.Migrations.InitialCreate": "SQLServer.Migrations.InitialCreate.yml",
+  "SQLServer.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": "SQLServer.Migrations.InitialCreate.yml",
+  "SQLServer.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": "SQLServer.Migrations.InitialCreate.yml",
+  "SQLServer.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": "SQLServer.Migrations.InitialCreate.yml",
+  "SqlServerRemoteAccess": "SqlServerRemoteAccess.yml",
+  "SqlServerRemoteAccess.ApplicationDbContext": "SqlServerRemoteAccess.ApplicationDbContext.yml",
+  "SqlServerRemoteAccess.ApplicationDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)": "SqlServerRemoteAccess.ApplicationDbContext.yml",
+  "SqlServerRemoteAccess.ApplicationDbContext.Students": "SqlServerRemoteAccess.ApplicationDbContext.yml",
+  "SqlServerRemoteAccess.Student": "SqlServerRemoteAccess.Student.yml",
+  "SqlServerRemoteAccess.Student.FullName": "SqlServerRemoteAccess.Student.yml",
+  "SqlServerRemoteAccess.Student.Id": "SqlServerRemoteAccess.Student.yml"
+}

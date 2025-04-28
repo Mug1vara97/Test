@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLServer.Migrations
+  commentId: N:SQLServer.Migrations
+  id: SQLServer.Migrations
+  children:
+  - SQLServer.Migrations.InitialCreate
+  langs:
+  - csharp
+  - vb
+  name: SQLServer.Migrations
+  nameWithType: SQLServer.Migrations
+  fullName: SQLServer.Migrations
+  type: Namespace
+  assemblies:
+  - SQLServer
+references:
+- uid: SQLServer.Migrations.InitialCreate
+  commentId: T:SQLServer.Migrations.InitialCreate
+  href: SQLServer.Migrations.InitialCreate.html
+  name: InitialCreate
+  nameWithType: InitialCreate
+  fullName: SQLServer.Migrations.InitialCreate

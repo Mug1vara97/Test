@@ -1,0 +1,20 @@
+### YamlMime:TableOfContent
+items:
+- uid: SQLServer.Migrations
+  name: SQLServer.Migrations
+  type: Namespace
+  items:
+  - uid: SQLServer.Migrations.InitialCreate
+    name: InitialCreate
+    type: Class
+- uid: SqlServerRemoteAccess
+  name: SqlServerRemoteAccess
+  type: Namespace
+  items:
+  - uid: SqlServerRemoteAccess.ApplicationDbContext
+    name: ApplicationDbContext
+    type: Class
+  - uid: SqlServerRemoteAccess.Student
+    name: Student
+    type: Class
+memberLayout: SamePage

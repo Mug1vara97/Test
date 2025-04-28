@@ -8,26 +8,52 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SqlServerRemoteAccess
 {
+    /// <summary>
+    /// Контекст базы данных Entity Framework Core для работы с сущностью Student
+    /// </summary>
     public class ApplicationDbContext : DbContext
     {
+        /// <summary>
+        /// Набор данных студентов
+        /// </summary>
         public DbSet<Student> Students { get; set; } = null!;
 
+        /// <summary>
+        /// Конфигурация подключения к базе данных
+        /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Test;Trusted_Connection=True;");
         }
     }
 
+    /// <summary>
+    /// Класс, представляющий студента в системе
+    /// </summary>
     public class Student
     {
+        /// <summary>
+        /// Уникальный идентификатор студента
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// Полное имя студента
+        /// </summary>
         public string FullName { get; set; }
     }
 
+    /// <summary>
+    /// TCP-сервер для обработки SQL-запросов к базе данных
+    /// </summary>
     class Server
     {
         private const int Port = 5000;
 
+        /// <summary>
+        /// Точка входа в приложение сервера
+        /// </summary>
+        /// <param name="args">Аргументы командной строки</param>
         static void Main(string[] args)
         {
             TcpListener listener = new TcpListener(IPAddress.Any, Port);
@@ -42,6 +68,10 @@ namespace SqlServerRemoteAccess
             }
         }
 
+        /// <summary>
+        /// Обработка подключения клиента
+        /// </summary>
+        /// <param name="client">TCP-клиент</param>
         private static async void HandleClient(TcpClient client)
         {
             using (client)
@@ -67,6 +97,18 @@ namespace SqlServerRemoteAccess
             }
         }
 
+        /// <summary>
+        /// Выполнение SQL-запроса к базе данных
+        /// </summary>
+        /// <param name="query">SQL-запрос для выполнения</param>
+        /// <returns>Результат выполнения запроса в текстовом формате</returns>
+        /// <remarks>
+        /// Поддерживает два типа запросов:
+        /// <list type="bullet">
+        /// <item><description>SELECT - возвращает данные в формате CSV</description></item>
+        /// <item><description>Другие запросы (INSERT, UPDATE, DELETE) - возвращает количество затронутых строк</description></item>
+        /// </list>
+        /// </remarks>
         private static async Task<string> ExecuteSqlQueryAsync(string query)
         {
             using (var context = new ApplicationDbContext())

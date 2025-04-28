@@ -1,0 +1,158 @@
+{
+  "source_base_path": "C:/Users/mugiv/source/repos/SQLServer/SQLServer",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLServer.Migrations.InitialCreate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLServer.Migrations.InitialCreate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLServer.Migrations.InitialCreate",
+      "Summary": "<p sourcefile=\"api/SQLServer.Migrations.InitialCreate.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLServer.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLServer.Migrations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLServer.Migrations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SqlServerRemoteAccess.ApplicationDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SqlServerRemoteAccess.ApplicationDbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SqlServerRemoteAccess.ApplicationDbContext",
+      "Summary": "<p sourcefile=\"api/SqlServerRemoteAccess.ApplicationDbContext.yml\" sourcestartlinenumber=\"1\">Контекст базы данных Entity Framework Core для работы с сущностью Student</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SqlServerRemoteAccess.Student.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SqlServerRemoteAccess.Student.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SqlServerRemoteAccess.Student",
+      "Summary": "<p sourcefile=\"api/SqlServerRemoteAccess.Student.yml\" sourcestartlinenumber=\"1\">Класс, представляющий студента в системе</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SqlServerRemoteAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SqlServerRemoteAccess.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SqlServerRemoteAccess",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

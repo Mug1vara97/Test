@@ -1,0 +1,42 @@
+{
+  "api/SQLServer.Migrations.InitialCreate.html": {
+    "href": "api/SQLServer.Migrations.InitialCreate.html",
+    "title": "Class InitialCreate | Test",
+    "summary": "Class InitialCreate Namespace SQLServer.Migrations Assembly SQLServer.dll A base class inherited by each EF Core migration. [DbContext(typeof(ApplicationDbContext))] [Migration(\"20241204074017_InitialCreate\")] public class InitialCreate : Migration Inheritance object Migration InitialCreate Inherited Members Migration.InitialDatabase Migration.TargetModel Migration.UpOperations Migration.DownOperations Migration.ActiveProvider object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Remarks See Database migrations for more information and examples. Methods BuildTargetModel(ModelBuilder) Implemented to build the TargetModel. protected override void BuildTargetModel(ModelBuilder modelBuilder) Parameters modelBuilder ModelBuilder The ModelBuilder to use to build the model. Remarks See Database migrations for more information and examples. Down(MigrationBuilder) Builds the operations that will migrate the database 'down'. protected override void Down(MigrationBuilder migrationBuilder) Parameters migrationBuilder MigrationBuilder The MigrationBuilder that will build the operations. Remarks That is, builds the operations that will take the database from the state left in by this migration so that it returns to the state that it was in before this migration was applied. This method must be overridden in each class that inherits from Migration if both 'up' and 'down' migrations are to be supported. If it is not overridden, then calling it will throw and it will not be possible to migrate in the 'down' direction. See Database migrations for more information and examples. Up(MigrationBuilder) Builds the operations that will migrate the database 'up'. protected override void Up(MigrationBuilder migrationBuilder) Parameters migrationBuilder MigrationBuilder The MigrationBuilder that will build the operations. Remarks That is, builds the operations that will take the database from the state left in by the previous migration so that it is up-to-date with regard to this migration. This method must be overridden in each class that inherits from Migration. See Database migrations for more information and examples."
+  },
+  "api/SQLServer.Migrations.html": {
+    "href": "api/SQLServer.Migrations.html",
+    "title": "Namespace SQLServer.Migrations | Test",
+    "summary": "Namespace SQLServer.Migrations Classes InitialCreate A base class inherited by each EF Core migration."
+  },
+  "api/SqlServerRemoteAccess.ApplicationDbContext.html": {
+    "href": "api/SqlServerRemoteAccess.ApplicationDbContext.html",
+    "title": "Class ApplicationDbContext | Test",
+    "summary": "Class ApplicationDbContext Namespace SqlServerRemoteAccess Assembly SQLServer.dll Контекст базы данных Entity Framework Core для работы с сущностью Student public class ApplicationDbContext : DbContext, IInfrastructure<IServiceProvider>, IDbContextDependencies, IDbSetCache, IDbContextPoolable, IResettableService, IDisposable, IAsyncDisposable Inheritance object DbContext ApplicationDbContext Implements IInfrastructure<IServiceProvider> IDbContextDependencies IDbSetCache IDbContextPoolable IResettableService IDisposable IAsyncDisposable Inherited Members DbContext.Set<TEntity>() DbContext.Set<TEntity>(string) DbContext.ConfigureConventions(ModelConfigurationBuilder) DbContext.OnModelCreating(ModelBuilder) DbContext.SaveChanges() DbContext.SaveChanges(bool) DbContext.SaveChangesAsync(CancellationToken) DbContext.SaveChangesAsync(bool, CancellationToken) DbContext.Dispose() DbContext.DisposeAsync() DbContext.Entry<TEntity>(TEntity) DbContext.Entry(object) DbContext.Add<TEntity>(TEntity) DbContext.AddAsync<TEntity>(TEntity, CancellationToken) DbContext.Attach<TEntity>(TEntity) DbContext.Update<TEntity>(TEntity) DbContext.Remove<TEntity>(TEntity) DbContext.Add(object) DbContext.AddAsync(object, CancellationToken) DbContext.Attach(object) DbContext.Update(object) DbContext.Remove(object) DbContext.AddRange(params object[]) DbContext.AddRangeAsync(params object[]) DbContext.AttachRange(params object[]) DbContext.UpdateRange(params object[]) DbContext.RemoveRange(params object[]) DbContext.AddRange(IEnumerable<object>) DbContext.AddRangeAsync(IEnumerable<object>, CancellationToken) DbContext.AttachRange(IEnumerable<object>) DbContext.UpdateRange(IEnumerable<object>) DbContext.RemoveRange(IEnumerable<object>) DbContext.Find(Type, params object[]) DbContext.FindAsync(Type, params object[]) DbContext.FindAsync(Type, object[], CancellationToken) DbContext.Find<TEntity>(params object[]) DbContext.FindAsync<TEntity>(params object[]) DbContext.FindAsync<TEntity>(object[], CancellationToken) DbContext.FromExpression<TResult>(Expression<Func<IQueryable<TResult>>>) DbContext.Database DbContext.ChangeTracker DbContext.Model DbContext.ContextId DbContext.SavingChanges DbContext.SavedChanges DbContext.SaveChangesFailed object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties Students Набор данных студентов public DbSet<Student> Students { get; set; } Property Value DbSet<Student> Methods OnConfiguring(DbContextOptionsBuilder) Конфигурация подключения к базе данных protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) Parameters optionsBuilder DbContextOptionsBuilder"
+  },
+  "api/SqlServerRemoteAccess.Student.html": {
+    "href": "api/SqlServerRemoteAccess.Student.html",
+    "title": "Class Student | Test",
+    "summary": "Class Student Namespace SqlServerRemoteAccess Assembly SQLServer.dll Класс, представляющий студента в системе public class Student Inheritance object Student Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties FullName Полное имя студента public string FullName { get; set; } Property Value string Id Уникальный идентификатор студента public int Id { get; set; } Property Value int"
+  },
+  "api/SqlServerRemoteAccess.html": {
+    "href": "api/SqlServerRemoteAccess.html",
+    "title": "Namespace SqlServerRemoteAccess | Test",
+    "summary": "Namespace SqlServerRemoteAccess Classes ApplicationDbContext Контекст базы данных Entity Framework Core для работы с сущностью Student Student Класс, представляющий студента в системе"
+  },
+  "docs/getting-started.html": {
+    "href": "docs/getting-started.html",
+    "title": "Getting Started | Test",
+    "summary": "Getting Started"
+  },
+  "docs/introduction.html": {
+    "href": "docs/introduction.html",
+    "title": "Introduction | Test",
+    "summary": "Introduction"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "This is the HOMEPAGE. | Test",
+    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+  }
+}

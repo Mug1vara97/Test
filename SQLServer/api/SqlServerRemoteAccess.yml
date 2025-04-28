@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: SqlServerRemoteAccess
+  commentId: N:SqlServerRemoteAccess
+  id: SqlServerRemoteAccess
+  children:
+  - SqlServerRemoteAccess.ApplicationDbContext
+  - SqlServerRemoteAccess.Student
+  langs:
+  - csharp
+  - vb
+  name: SqlServerRemoteAccess
+  nameWithType: SqlServerRemoteAccess
+  fullName: SqlServerRemoteAccess
+  type: Namespace
+  assemblies:
+  - SQLServer
+references:
+- uid: SqlServerRemoteAccess.ApplicationDbContext
+  commentId: T:SqlServerRemoteAccess.ApplicationDbContext
+  parent: SqlServerRemoteAccess
+  href: SqlServerRemoteAccess.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: SqlServerRemoteAccess.ApplicationDbContext
+- uid: SqlServerRemoteAccess.Student
+  commentId: T:SqlServerRemoteAccess.Student
+  href: SqlServerRemoteAccess.Student.html
+  name: Student
+  nameWithType: Student
+  fullName: SqlServerRemoteAccess.Student
+- uid: SqlServerRemoteAccess
+  commentId: N:SqlServerRemoteAccess
+  href: SqlServerRemoteAccess.html
+  name: SqlServerRemoteAccess
+  nameWithType: SqlServerRemoteAccess
+  fullName: SqlServerRemoteAccess
