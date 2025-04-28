@@ -20,7 +20,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: ApplicationDbContext
-    path: Program.cs
+    path: SQLServer/Program.cs
     startLine: 13
   assemblies:
   - SQLServer
@@ -112,7 +112,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: Students
-    path: Program.cs
+    path: SQLServer/Program.cs
     startLine: 18
   assemblies:
   - SQLServer
@@ -143,7 +143,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: OnConfiguring
-    path: Program.cs
+    path: SQLServer/Program.cs
     startLine: 23
   assemblies:
   - SQLServer

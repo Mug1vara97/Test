@@ -21,7 +21,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: InitialCreate
-    path: Migrations/20241204074017_InitialCreate.Designer.cs
+    path: SQLServer/Migrations/20241204074017_InitialCreate.Designer.cs
     startLine: 12
   assemblies:
   - SQLServer
@@ -86,7 +86,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: Up
-    path: Migrations/20241204074017_InitialCreate.cs
+    path: SQLServer/Migrations/20241204074017_InitialCreate.cs
     startLine: 10
   assemblies:
   - SQLServer
@@ -132,7 +132,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: Down
-    path: Migrations/20241204074017_InitialCreate.cs
+    path: SQLServer/Migrations/20241204074017_InitialCreate.cs
     startLine: 27
   assemblies:
   - SQLServer
@@ -180,7 +180,7 @@ items:
       branch: master
       repo: https://github.com/Mug1vara97/Test.git
     id: BuildTargetModel
-    path: Migrations/20241204074017_InitialCreate.Designer.cs
+    path: SQLServer/Migrations/20241204074017_InitialCreate.Designer.cs
     startLine: 17
   assemblies:
   - SQLServer
