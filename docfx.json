@@ -4,10 +4,9 @@
     {
       "src": [
         {
-          "src": "../SQLServer/",
-          "files": [
-            "**/*.csproj"
-          ]
+          "src": ".",
+          "files": ["**/*.csproj"],
+          "exclude": ["**/bin/**", "**/obj/**"]
         }
       ],
       "dest": "api"
@@ -16,29 +15,17 @@
   "build": {
     "content": [
       {
-        "files": [
-          "**/*.{md,yml}"
-        ],
-        "exclude": [
-          "_site/**"
-        ],
-        "articles": [
-          "articles/**"
-        ]
+        "files": ["*.md", "articles/**/*.md"],
+        "exclude": ["_site/**"]
       }
     ],
     "resource": [
       {
-        "files": [
-          "images/**"
-        ]
+        "files": ["images/**"]
       }
     ],
     "output": "_site",
-    "template": [
-      "default",
-      "modern"
-    ],
+    "template": ["default"],
     "globalMetadata": {
       "_appName": "Test",
       "_appTitle": "Test",

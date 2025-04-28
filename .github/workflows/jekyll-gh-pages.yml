@@ -39,17 +39,28 @@ jobs:
         dotnet-version: 8.x
 
     - name: Install DocFX
-      run: dotnet tool install -g docfx
+      run: dotnet tool install -g docfx --version 2.78.3
 
     - name: Prepare documentation
       run: |
-        echo "- name: Changelog" >> toc.yml
-        echo "  href: articles/changelog.md" >> toc.yml
+        # Создаем структуру каталогов
         mkdir -p articles
-        mv CHANGELOG.md articles/changelog.md
+        
+        # Проверяем существование файла перед перемещением
+        if [ -f "CHANGELOG.md" ]; then
+          mv CHANGELOG.md articles/changelog.md
+        else
+          echo "CHANGELOG.md not found!"
+          exit 1
+        fi
+
+        # Создаем корректный YAML
+        echo "- name: Changelog" > toc.yml
+        echo "  href: articles/changelog.md" >> toc.yml
 
     - name: Build documentation
-      run: docfx docfx.json
+      run: |
+        docfx docfx.json --logLevel Warning
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
