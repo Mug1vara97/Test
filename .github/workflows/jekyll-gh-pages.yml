@@ -27,7 +27,7 @@ jobs:
         fetch-depth: 0
 
     - name: Generate CHANGELOG
-      uses: nuuday/github-changelog-action@v1.0.0 # Обновленная версия
+      uses: nuuday/github-changelog-action@v1.0.0
       with:
         output: CHANGELOG.md
         template: keepachangelog
@@ -45,6 +45,8 @@ jobs:
       run: |
         echo "- name: Changelog" >> toc.yml
         echo "  href: articles/changelog.md" >> toc.yml
+        mkdir -p articles
+        mv CHANGELOG.md articles/changelog.md
 
     - name: Build documentation
       run: docfx docfx.json
