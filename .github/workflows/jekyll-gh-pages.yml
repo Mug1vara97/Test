@@ -36,16 +36,14 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.x
-
-      - run: dotnet tool update -g docfx
-      - run: docfx docfx.json
-      
         with:
           source: ./
           destination: ./_site
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-
+        uses: actions/upload-pages-artifact@v3  
+      - run: dotnet tool update -g docfx
+      - run: docfx docfx.json
+      
   # Deployment job
   deploy:
     environment:
